@@ -1,0 +1,22 @@
+{
+  "name": "wasm-modules",
+  "version": "1.0.0",
+  "description": "wasm modules for node.js",
+  "main": "index.js",
+  "scripts": {
+    "create": "node ./cli/index.js create"
+  },
+  "workspaces": [
+    "modules/*"
+  ],
+  "private": true,
+  "repository": "git@github.com:iknil/wasm-modules.git",
+  "author": "iknil <lizhekang@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "commander": "^9.4.0",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^8.0.0",
+    "terminal-kit": "^2.4.0"
+  }
+}

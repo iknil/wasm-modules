@@ -1,0 +1,12 @@
+{
+    "name": "<package-name>",
+    "version": "1.0.0",
+    "description": "<description>",
+    "scripts": {
+      "build": "wasm build"
+    },
+    "dependencies": {
+        
+    }
+  }
+  
