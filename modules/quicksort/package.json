@@ -1,7 +1,7 @@
 {
-    "name": "<package-name>",
+    "name": "quicksort",
     "version": "1.0.0",
-    "description": "<description>",
+    "description": "quicksort",
     "scripts": {
       "build": "wasm-pack build -t nodejs"
     },
