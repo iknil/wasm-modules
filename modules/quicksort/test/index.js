@@ -1,7 +1,7 @@
 let wasm = require('../pkg/quicksort');
 
 const arr = [];
-const MAX = 10000000;
+const MAX = 1000 * 1000 * 100;
 let i = MAX;
 
 while(i > 0) {
@@ -14,5 +14,5 @@ arr.sort();
 console.log('js sort:', Date.now() - startTime);
 
 startTime = Date.now();
-wasm.quicksort(arr);
+wasm.quicksort(arr, true);
 console.log('wasm sort:', Date.now() - startTime);

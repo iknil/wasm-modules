@@ -23,47 +23,9 @@ extern "C" {
     fn log_many(a: &str, b: &str);
 }
 
-pub fn quick_sort<T: Ord>(arr: &mut [T]) {
-    let len = arr.len();
-    _quick_sort(arr, 0, (len - 1) as isize);
-}
-
-fn _quick_sort<T: Ord>(arr: &mut [T], low: isize, high: isize) {
-    if low < high {
-        let p = partition(arr, low, high);
-        _quick_sort(arr, low, p - 1);
-        _quick_sort(arr, p + 1, high);
-    }
-}
-
-fn partition<T: Ord>(arr: &mut [T], low: isize, high: isize) -> isize {
-    let pivot = high as usize;
-    let mut store_index = low - 1;
-    let mut last_index = high;
-
-    loop {
-        store_index += 1;
-        while arr[store_index as usize] < arr[pivot] {
-            store_index += 1;
-        }
-        last_index -= 1;
-        while last_index >= 0 && arr[last_index as usize] > arr[pivot] {
-            last_index -= 1;
-        }
-        if store_index >= last_index {
-            break;
-        } else {
-            arr.swap(store_index as usize, last_index as usize);
-        }
-    }
-    arr.swap(store_index as usize, pivot as usize);
-    store_index
-}
 #[wasm_bindgen]
-pub fn quicksort(array: JsValue) -> Array {
-    let mut arr: Vec<u32> = Uint32Array::new(&array).to_vec();
-    // let len = arr.len();
-    // qsort::<u32>(&mut arr, 1, len-1);
-    arr.sort();
-    arr.into_iter().map(JsValue::from).collect()
+pub fn quicksort(array: JsValue, f: bool) -> Array {
+    let mut arr: Vec<u32> = Uint32Array::new(&array).to_vec(); // JS array to Vec
+    if f { arr.sort_unstable_by(|a, b| a.cmp(b)) } else { arr.sort_unstable_by(|a, b| b.cmp(a)) };
+    arr.into_iter().map(JsValue::from).collect() // Vec to JS array
 }
