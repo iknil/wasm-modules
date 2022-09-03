@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "<description>",
     "scripts": {
-      "build": "wasm-pack build -t nodejs"
+      "build": "wasm-pack build -t nodejs",
+      "test": "jest"
     },
     "dependencies": {
         
