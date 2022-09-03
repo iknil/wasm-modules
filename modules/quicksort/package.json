@@ -1,13 +1,15 @@
 {
     "name": "quicksort",
     "version": "1.0.0",
+    "main": "./dist/index.js",
     "description": "quicksort",
     "scripts": {
-      "build": "wasm-pack build -t nodejs",
+      "build": "wasm-pack build -t nodejs && npx tsc",
       "test": "jest"
     },
     "dependencies": {
-        
+      "jest": "^29.0.1",
+      "typescript": "^4.8.2"
     }
   }
   
